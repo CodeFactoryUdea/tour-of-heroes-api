@@ -31,6 +31,33 @@ public class HeroService {
             System.out.println("bug");
 
         }
+
+
+
+
+
+    }
+
+    public void testBug2(){
+        AtomicInteger aInt1 = new AtomicInteger(0);
+        AtomicInteger aInt2 = new AtomicInteger(0);
+
+        if (aInt1.equals(aInt2)) {
+            System.out.println("bug");
+
+        }
+
+    }
+
+    public void testBug3(){
+        AtomicInteger aInt1 = new AtomicInteger(0);
+        AtomicInteger aInt2 = new AtomicInteger(0);
+
+        if (aInt1.equals(aInt2)) {
+            System.out.println("bug");
+
+        }
+
     }
 
     public Hero findById(Integer id) {
