@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 @Transactional
@@ -20,6 +21,16 @@ public class HeroService {
 
     public HeroService(HeroRepository heroRepository) {
         this.heroRepository = heroRepository;
+    }
+
+    public void testBug(){
+        AtomicInteger aInt1 = new AtomicInteger(0);
+        AtomicInteger aInt2 = new AtomicInteger(0);
+
+        if (aInt1.equals(aInt2)) {
+            System.out.println("bug");
+
+        }
     }
 
     public Hero findById(Integer id) {

@@ -33,7 +33,7 @@ public class HeroController {
         return ResponseEntity.ok(hero);
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/test/{id}")
     public ResponseEntity<Hero> getHero2(@PathVariable Integer id){
         log.info("Rest request buscar heroe por id: "+ id);
         var hero = heroService.findById(id);
@@ -41,15 +41,7 @@ public class HeroController {
         return ResponseEntity.ok(hero);
     }
 
-    public void testBug(){
-        AtomicInteger aInt1 = new AtomicInteger(0);
-        AtomicInteger aInt2 = new AtomicInteger(0);
 
-        if (aInt1.equals(aInt2)) {
-            System.out.println("bug");
-
-        }
-    }
 
     @GetMapping()
     public ResponseEntity<StandardResponse<List<Hero>>> findAll() {
