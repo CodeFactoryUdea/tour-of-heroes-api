@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -30,6 +31,24 @@ public class HeroController {
         var hero = heroService.findById(id);
 
         return ResponseEntity.ok(hero);
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<Hero> getHero2(@PathVariable Integer id){
+        log.info("Rest request buscar heroe por id: "+ id);
+        var hero = heroService.findById(id);
+
+        return ResponseEntity.ok(hero);
+    }
+
+    public void testBug(){
+        AtomicInteger aInt1 = new AtomicInteger(0);
+        AtomicInteger aInt2 = new AtomicInteger(0);
+
+        if (aInt1.equals(aInt2)) {
+            System.out.println("bug");
+
+        }
     }
 
     @GetMapping()
